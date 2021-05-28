@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Pracownicy, Stanowiska, Szkolenia, Urlopy, Zatrudnienie, Projekty, Premia, Rekrutacja
+from django.shortcuts import redirect, render, get_object_or_404
+from .models import Pracownicy, PracownicyForm, Stanowiska, Szkolenia, Urlopy, Zatrudnienie, Projekty, Premia, Rekrutacja
 
 
 def index(request):
@@ -9,10 +10,19 @@ def index(request):
 def detail_pracownicy(request):
     pracownicy = Pracownicy.objects.all()
     template = loader.get_template('polls/pracownicy.html')
+    formularzPracownik = PracownicyForm(request.POST or None, request.FILES or None)
+    if formularzPracownik.is_valid():
+        formularzPracownik.save()
     context = {
         'pracownicy': pracownicy,
+        'form': formularzPracownik
     }
     return HttpResponse(template.render(context, request))
+
+def add_pracownik(request, question_id):
+    pracownik = get_object_or_404(Pracownicy, pk=question_id)
+    pracownik.save()
+    return redirect(detail_pracownicy)
 
 def detail_stanowiska(request):
     stanowiska = Stanowiska.objects.all()

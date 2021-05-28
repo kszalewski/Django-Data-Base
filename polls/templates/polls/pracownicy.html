@@ -1,23 +1,26 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
-{% if pracownicy %}
-    <table>
-        <tr> 
-            <th><a>Imię</a></th>
-            <th><a>Nazwisko</a></th>
-            <th><a>Data Urodzenia</a></th>
-            <th><a>Pesel</a></th>
-        </tr>
-    {% for pracownik in pracownicy %}
-        <tr> 
-            <td><a href="/polls/{{ pracownik.imie }}/">{{pracownik.imie}}</a></td>
-            <td><a href="/polls/{{ pracownik.nazwisko }}/">{{pracownik.nazwisko}}</a></td>
-            <td><a href="/polls/{{ pracownik.data_ur }}/">{{pracownik.data_ur}}</a></td>
-            <td><a href="/polls/{{ pracownik.pesel }}/">{{pracownik.pesel}}</a></td>
-        </tr>
-    {% endfor %}
-    </table>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+<table>
+  <tr>
+    <th><a>Imię</a></th>
+    <th><a>Nazwisko</a></th>
+    <th><a>Data Urodzenia</a></th>
+    <th><a>Pesel</a></th>
+  </tr>
+  {% for pracownik in pracownicy %}
+  <tr>
+    <td><a href="/polls/{{ pracownik.imie }}/">{{pracownik.imie}}</a></td>
+    <td>
+      <a href="/polls/{{ pracownik.nazwisko }}/">{{pracownik.nazwisko}}</a>
+    </td>
+    <td><a href="/polls/{{ pracownik.data_ur }}/">{{pracownik.data_ur}}</a></td>
+    <td><a href="/polls/{{ pracownik.pesel }}/">{{pracownik.pesel}}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{form}}
+  <button type="submit">Dodaj pracownika</button>
+</form>

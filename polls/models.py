@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.forms import ModelForm
 from django.utils import timezone
 
 
@@ -18,6 +19,11 @@ class Pracownicy(models.Model):
     pesel = models.DecimalField(max_digits=11, decimal_places=0)
     def __str__(self):
         return '%s %s' % (self.imie, self.nazwisko)
+
+class PracownicyForm(ModelForm):
+    class Meta:
+        model = Pracownicy
+        fields = ['imie', 'nazwisko', 'data_ur', 'pesel']
 
 class Projekty(models.Model):
     nazwa = models.CharField(max_length=200)
