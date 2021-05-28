@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if rekrutacja %}
+    <table>
+        <tr> 
+            <th><a>Imie</a></th>
+            <th><a>Nazwisko</a></th>
+            <th><a>CV</a></th>
+            <th><a>Stanowisko</a></th>
+            <th><a>Pesel</a></th>
+            <th><a>Akceptacja</a></th>
+        </tr>
+    {% for rekrut in rekrutacja %}
+        <tr> 
+            <td><a href="/polls/{{ rekrut.imie }}/">{{rekrut.imie}}</a></td>
+            <td><a href="/polls/{{ rekrut.nazwisko }}/">{{rekrut.nazwisko}}</a></td>
+            <td><a href="/polls/{{ rekrut.upload_CV }}/">{{rekrut.upload_CV}}</a></td>
+            <td><a href="/polls/{{ rekrut.stanowisko }}/">{{rekrut.stanowisko}}</a></td>
+            <td><a href="/polls/{{ rekrut.pesel }}/">{{rekrut.pesel}}</a></td>
+            <td><a href="/polls/{{ rekrut.akceptacja }}/">{{rekrut.akceptacja}}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

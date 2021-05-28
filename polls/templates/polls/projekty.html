@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if projekty %}
+    <table>
+        <tr> 
+            <th><a>Nazwa</a></th>
+            <th><a>Od_data</a></th>
+            <th><a>Do_data</a></th>
+            <th><a>Koszty</a></th>
+            <th><a>Profit</a></th>
+        </tr>
+    {% for projekt in projekty %}
+        <tr> 
+            <td><a href="/polls/{{ projekt.nazwa }}/">{{projekt.nazwa}}</a></td>
+            <td><a href="/polls/{{ projekt.od_data }}/">{{projekt.od_data}}</a></td>
+            <td><a href="/polls/{{ projekt.do_data }}/">{{projekt.do_data}}</a></td>
+            <td><a href="/polls/{{ projekt.koszty }}/">{{projekt.koszty}}</a></td>
+            <td><a href="/polls/{{ projekt.profit }}/">{{projekt.profit}}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

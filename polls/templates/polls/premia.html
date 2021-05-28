@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if premia %}
+    <table>
+        <tr> 
+            <th><a>Nazwa</a></th>
+            <th><a>Wiekosc</a></th>
+            <th><a>Uzasadnienie</a></th>
+            <th><a>Awans</a></th>
+            <th><a>Data</a></th>
+        </tr>
+    {% for premii in premia %}
+        <tr> 
+            <td><a href="/polls/{{ premii.nazwa }}/">{{premii.nazwa}}</a></td>
+            <td><a href="/polls/{{ premii.wiekosc }}/">{{premii.wiekosc}}</a></td>
+            <td><a href="/polls/{{ premii.uzasadnienie }}/">{{premii.uzasadnienie}}</a></td>
+            <td><a href="/polls/{{ premii.awans }}/">{{premii.awans}}</a></td>
+            <td><a href="/polls/{{ premii.data }}/">{{premii.data}}</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
