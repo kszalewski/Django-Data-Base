@@ -8,9 +8,10 @@
     <th>Dział</th>
   </tr>
   {% for stanowisko in stanowiska %}
-  <tr class="{% if stanowisko.braki %} braki{% endif %}">
+  <tr class="{% if stanowisko.braki %} braki {% endif %}">
     <td>{{stanowisko.nazwa}}</td>
     <td>{{stanowisko.dzial}}</td>
+    <td>{{stanowisko.braki}}</td>
   </tr>
   {% endfor %}
 </table>

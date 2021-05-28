@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Pracownicy, Stanowiska
+from .models import Pracownicy, Stanowiska, Szkolenia, Urlopy, Zatrudnienie
 
 
 def index(request):
@@ -19,5 +19,29 @@ def detail_stanowiska(request):
     template = loader.get_template('polls/stanowiska.html')
     context = {
         'stanowiska': stanowiska,
+    }
+    return HttpResponse(template.render(context, request))
+
+def detail_szkolenia(request):
+    szkolenia = Szkolenia.objects.all()
+    template = loader.get_template('polls/szkolenia.html')
+    context = {
+        'szkolenia': szkolenia,
+    }
+    return HttpResponse(template.render(context, request))
+
+def detail_urlopy(request):
+    urlopy = Urlopy.objects.all()
+    template = loader.get_template('polls/urlopy.html')
+    context = {
+        'urlopy': urlopy,
+    }
+    return HttpResponse(template.render(context, request))
+
+def detail_zatrudnienie(request):
+    zatrudnienia = Zatrudnienie.objects.all()
+    template = loader.get_template('polls/zatrudnienia.html')
+    context = {
+        'zatrudnienia': zatrudnienia,
     }
     return HttpResponse(template.render(context, request))
