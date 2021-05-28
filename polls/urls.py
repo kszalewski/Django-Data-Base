@@ -12,4 +12,8 @@ urlpatterns = [
     path('premia/', views.detail_premia),
     path('projekty/', views.detail_projekty),
     path('rekrutacja/', views.detail_rekrutacja),
+    path('usun_pracownika/<int:id>/', views.usun_f),
+    path('usun_stanowisko/<int:id>/', views.usun_st),
+    path('usun_projekt/<int:id>/', views.usun_proj),
+    path('usun_zatrudnienie/<int:id>/', views.usun_zat),
 ]
