@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Pracownicy
+from .models import Pracownicy, Stanowiska
 
 
 def index(request):
@@ -14,3 +14,10 @@ def detail_pracownicy(request):
     }
     return HttpResponse(template.render(context, request))
 
+def detail_stanowiska(request):
+    stanowiska = Stanowiska.objects.all()
+    template = loader.get_template('polls/stanowiska.html')
+    context = {
+        'stanowiska': stanowiska,
+    }
+    return HttpResponse(template.render(context, request))

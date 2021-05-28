@@ -1,0 +1,19 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if stanowiska %}
+<table>
+  <tr>
+    <th>Nazwa</th>
+    <th>Dział</th>
+  </tr>
+  {% for stanowisko in stanowiska %}
+  <tr class="{% if stanowisko.braki %} braki{% endif %}">
+    <td>{{stanowisko.nazwa}}</td>
+    <td>{{stanowisko.dzial}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}
