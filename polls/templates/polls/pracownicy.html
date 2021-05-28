@@ -1,0 +1,9 @@
+{% if pracownicy %}
+    <ul>
+    {% for pracownik in pracownicy %}
+        <li>   {{pracownik.imie}} {{pracownik.nazwisko}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

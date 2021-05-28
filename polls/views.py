@@ -1,15 +1,23 @@
 from django.http import HttpResponse
+from django.template import loader
+from .models import Pracownicy, Stanowiska
 
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
-def detail_stanowiska(request, Stanowiska.nazwa):
-    return HttpResponse("Ogladasz stanowisko %s." % Stanowiska.nazwa)
+def detail_pracownicy(request):
+    pracownicy = Pracownicy.objects.all()
+    template = loader.get_template('polls/pracownicy.html')
+    context = {
+        'pracownicy': pracownicy,
+    }
+    return HttpResponse(template.render(context, request))
 
-def results_stanowiska(request, Stanowiska.nazwa):
-    response = "Szczególy stanowiska o nazwie %s."
-    return HttpResponse(response % Stanowiska.nazwa)
-
-def vote_stanowiska(request, Stanowiska.nazwa):
-    return HttpResponse("Zmieniles stanowisko o nazwie %s." % Stanowiska.nazwa)
+def detail_stanowiska(request):
+    stanowiska = Stanowiska.objects.all()
+    template = loader.get_template('polls/stanowiska.html')
+    context = {
+        'stanowiska': stanowiska,
+    }
+    return HttpResponse(template.render(context, request))
