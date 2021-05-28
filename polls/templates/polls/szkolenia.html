@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if szkolenia %}
+<table>
+  <tr>
+    <th>Nazwa</th>
+    <th>Certyfikat</th>
+    <th>Data</th>
+    <th>Cena</th>
+    <th>Dofinansowanie</th>
+    <th>Pracownicy</th>
+  </tr>
+  {% for szkolenie in szkolenia %}
+  <tr>
+    <td>{{szkolenie.nazwa}}</td>
+    <td>{{szkolenie.certyfikat}}</td>
+    <td>{{szkolenie.data}}</td>
+    <td>{{szkolenie.cena}}</td>
+    <td>{{szkolenie.dofinansowanie}}</td>
+    <td>{{szkolenie.pracownik}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No polls are available.</p>
+{% endif %}

@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if urlopy %}
+<table>
+  <tr>
+    <th>pracownik</th>
+    <th>okres</th>
+    <th>rodzaj</th>
+    <th>miejsce<th>
+  </tr>
+  {% for urlop in urlopy %}
+    <td>{{urlop.pracownik}}</td>
+    <td>{{urlop.od_data}} - {{ urlop.do_data }}</td>
+    <td>{{urlop.rodzaj_zwolnienia}}</td>
+    <td>{{urlop.miejsce_pobytu}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Brak urlopów w bazie danych.</p>
+{% endif %}

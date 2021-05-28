@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+{% if zatrudnienia %}
+<table>
+  <tr>
+    <th>Pracownik</th>
+    <th>Projekt</th>
+    <th>Stanowisko </th>
+    <th>Okres</th>
+    <th>Pensja<th>
+  </tr>
+  {% for zatrudnienie in zatrudnienia %}
+    <td>{{zatrudnienie.pracownik}}</td>
+    <td>{{zatrudnienie.projekt}}</td>
+    <td>{{zatrudnienie.stanowisko}}</td>
+    <td>{{zatrudnienie.od_data}} - {{ zatrudnienie.do_data }}</td>
+    <td>{{zatrudnienie.pensja}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>Brak zatrudnienieów w bazie danych.</p>
+{% endif %}
