@@ -13,12 +13,12 @@
         </tr>
     {% for rekrut in rekrutacja %}
         <tr> 
-            <td><a href="/polls/{{ rekrut.imie }}/">{{rekrut.imie}}</a></td>
-            <td><a href="/polls/{{ rekrut.nazwisko }}/">{{rekrut.nazwisko}}</a></td>
-            <td><a href="/polls/{{ rekrut.upload_CV }}/">{{rekrut.upload_CV}}</a></td>
-            <td><a href="/polls/{{ rekrut.stanowisko }}/">{{rekrut.stanowisko}}</a></td>
-            <td><a href="/polls/{{ rekrut.pesel }}/">{{rekrut.pesel}}</a></td>
-            <td><a href="/polls/{{ rekrut.akceptacja }}/">{{rekrut.akceptacja}}</a></td>
+            <td><a>{{rekrut.imie}}</a></td>
+            <td><a>{{rekrut.nazwisko}}</a></td>
+            <td><a>{{rekrut.upload_CV}}</a></td>
+            <td><a>{{rekrut.stanowisko}}</a></td>
+            <td><a>{{rekrut.pesel}}</a></td>
+            <td><a>{{rekrut.akceptacja}}</a></td>
         </tr>
     {% endfor %}
     </table>
