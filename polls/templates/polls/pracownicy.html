@@ -1,9 +1,23 @@
+<!DOCTYPE html>
+<meta charset="windows-1252">
+<style> td { border: 1px solid black; } </style>
 {% if pracownicy %}
-    <ul>
+    <table>
+        <tr> 
+            <th><a>Imię</a></th>
+            <th><a>Nazwisko</a></th>
+            <th><a>Data Urodzenia</a></th>
+            <th><a>Pesel</a></th>
+        </tr>
     {% for pracownik in pracownicy %}
-        <li>   {{pracownik.imie}} {{pracownik.nazwisko}}</li>
+        <tr> 
+            <td><a href="/polls/{{ pracownik.imie }}/">{{pracownik.imie}}</a></td>
+            <td><a href="/polls/{{ pracownik.nazwisko }}/">{{pracownik.nazwisko}}</a></td>
+            <td><a href="/polls/{{ pracownik.data_ur }}/">{{pracownik.data_ur}}</a></td>
+            <td><a href="/polls/{{ pracownik.pesel }}/">{{pracownik.pesel}}</a></td>
+        </tr>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
