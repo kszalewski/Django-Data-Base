@@ -12,11 +12,11 @@
         </tr>
     {% for premii in premia %}
         <tr> 
-            <td><a href="/polls/{{ premii.nazwa }}/">{{premii.nazwa}}</a></td>
-            <td><a href="/polls/{{ premii.wiekosc }}/">{{premii.wiekosc}}</a></td>
-            <td><a href="/polls/{{ premii.uzasadnienie }}/">{{premii.uzasadnienie}}</a></td>
-            <td><a href="/polls/{{ premii.awans }}/">{{premii.awans}}</a></td>
-            <td><a href="/polls/{{ premii.data }}/">{{premii.data}}</a></td>
+            <td><a>{{premii.nazwa}}</a></td>
+            <td><a>{{premii.wiekosc}}</a></td>
+            <td><a>{{premii.uzasadnienie}}</a></td>
+            <td><a>{{premii.awans}}</a></td>
+            <td><a>{{premii.data}}</a></td>
         </tr>
     {% endfor %}
     </table>

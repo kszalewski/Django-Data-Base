@@ -11,10 +11,10 @@
         </tr>
     {% for pracownik in pracownicy %}
         <tr> 
-            <td><a href="/polls/{{ pracownik.imie }}/">{{pracownik.imie}}</a></td>
-            <td><a href="/polls/{{ pracownik.nazwisko }}/">{{pracownik.nazwisko}}</a></td>
-            <td><a href="/polls/{{ pracownik.data_ur }}/">{{pracownik.data_ur}}</a></td>
-            <td><a href="/polls/{{ pracownik.pesel }}/">{{pracownik.pesel}}</a></td>
+            <td><a>{{pracownik.imie}}</a></td>
+            <td><a>{{pracownik.nazwisko}}</a></td>
+            <td><a>{{pracownik.data_ur}}</a></td>
+            <td><a>{{pracownik.pesel}}</a></td>
         </tr>
     {% endfor %}
     </table>
