@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
-from .models import Pracownicy, Stanowiska, Premia
+from .models import Pracownicy, Projekty, Stanowiska, Premia, Rekrutacja
 
 
 def index(request):
@@ -27,5 +27,21 @@ def detail_premia(request):
     template = loader.get_template('polls/premia.html')
     context = {
         'premia': premia,
+    }
+    return HttpResponse(template.render(context, request))
+
+def detail_projekty(request):
+    projekty = Projekty.objects.all()
+    template = loader.get_template('polls/projekty.html')
+    context = {
+        'projekty': projekty,
+    }
+    return HttpResponse(template.render(context, request))
+
+def detail_rekrutacja(request):
+    rekrutacja = Rekrutacja.objects.all()
+    template = loader.get_template('polls/rekrutacja.html')
+    context = {
+        'rekrutacja': rekrutacja,
     }
     return HttpResponse(template.render(context, request))
