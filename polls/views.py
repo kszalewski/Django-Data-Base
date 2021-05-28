@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Pracownicy, Stanowiska, Szkolenia, Urlopy, Zatrudnienie, Projekty, Premia, Rekrutacja
 
 
@@ -69,3 +70,31 @@ def detail_rekrutacja(request):
         'rekrutacja': rekrutacja,
     }
     return HttpResponse(template.render(context, request))
+
+def usun_f(request,id):
+    pracownik = get_object_or_404(Pracownicy, pk=id)
+    if request.method == "POST":
+        pracownik.delete()
+        return redirect(detail_pracownicy)
+    return render(request, 'usun_pracownika.html',{'id_pracownika':pracownik})
+
+def usun_st(request,id):
+    stanowisko = get_object_or_404(Stanowiska, pk=id)
+    if request.method == "POST":
+        stanowisko.delete()
+        return redirect(detail_stanowiska)
+    return render(request, 'usun_stanowisko.html',{'id_stanowiska':stanowisko})
+
+def usun_proj(request,id):
+    projekt = get_object_or_404(Projekty, pk=id)
+    if request.method == "POST":
+        projekt.delete()
+        return redirect(detail_projekty)
+    return render(request, 'usun_projekt.html',{'id_projektu':projekt})
+
+def usun_zat(request,id):
+    zatrudnienie = get_object_or_404(Zatrudnienie, pk=id)
+    if request.method == "POST":
+        projekt.delete()
+        return redirect(detail_zatrudnienie)
+    return render(request, 'usun_zatrudnienie.html',{'id_projektu':zatrudnienie})

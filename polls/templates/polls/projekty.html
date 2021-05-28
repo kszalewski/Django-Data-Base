@@ -12,11 +12,11 @@
         </tr>
     {% for projekt in projekty %}
         <tr> 
-            <td><a href="/polls/{{ projekt.nazwa }}/">{{projekt.nazwa}}</a></td>
-            <td><a href="/polls/{{ projekt.od_data }}/">{{projekt.od_data}}</a></td>
-            <td><a href="/polls/{{ projekt.do_data }}/">{{projekt.do_data}}</a></td>
-            <td><a href="/polls/{{ projekt.koszty }}/">{{projekt.koszty}}</a></td>
-            <td><a href="/polls/{{ projekt.profit }}/">{{projekt.profit}}</a></td>
+            <td><a>{{projekt.nazwa}}</a></td>
+            <td><a>{{projekt.od_data}}</a></td>
+            <td><a>{{projekt.do_data}}</a></td>
+            <td><a>{{projekt.koszty}}</a></td>
+            <td><a>{{projekt.profit}}</a></td>
         </tr>
     {% endfor %}
     </table>
