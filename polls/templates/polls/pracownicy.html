@@ -1,7 +1,7 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
-<a href="{% url 'polls:Start' %}">Powrót na Stronę główną</a>
+<a href="{% url 'start' %}">Powrót na Stronę główną</a>
 
 {% if pracownicy %}
     <table>
@@ -17,6 +17,7 @@
             <td><a>{{pracownik.nazwisko}}</a></td>
             <td><a>{{pracownik.data_ur}}</a></td>
             <td><a>{{pracownik.pesel}}</a></td>
+            <td><a href="/polls/usun_pracownika/{{pracownik.id}}/">Usuń Pracownika</a></td>
         </tr>
     {% endfor %}
     </table>

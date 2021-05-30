@@ -4,9 +4,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Pracownicy, Stanowiska, Szkolenia, Urlopy, Zatrudnienie, Projekty, Premia, Rekrutacja
 
 
-def Start(request):
-    return render(request, 'start.html')
-
 def detail_pracownicy(request):
     pracownicy = Pracownicy.objects.all()
     template = loader.get_template('polls/pracownicy.html')
@@ -76,25 +73,25 @@ def usun_f(request,id):
     if request.method == "POST":
         pracownik.delete()
         return redirect(detail_pracownicy)
-    return render(request, 'usun_pracownika.html',{'id_pracownika':pracownik})
+    return render(request, 'polls/usun_pracownika.html',{'id_pracownika':pracownik})
 
 def usun_st(request,id):
     stanowisko = get_object_or_404(Stanowiska, pk=id)
     if request.method == "POST":
         stanowisko.delete()
         return redirect(detail_stanowiska)
-    return render(request, 'usun_stanowisko.html',{'id_stanowiska':stanowisko})
+    return render(request, 'polls/usun_stanowisko.html',{'id_stanowiska':stanowisko})
 
 def usun_proj(request,id):
     projekt = get_object_or_404(Projekty, pk=id)
     if request.method == "POST":
         projekt.delete()
         return redirect(detail_projekty)
-    return render(request, 'usun_projekt.html',{'id_projektu':projekt})
+    return render(request, 'polls/usun_projekt.html',{'id_projektu':projekt})
 
 def usun_zat(request,id):
     zatrudnienie = get_object_or_404(Zatrudnienie, pk=id)
     if request.method == "POST":
         zatrudnienie.delete()
         return redirect(detail_zatrudnienie)
-    return render(request, 'usun_zatrudnienie.html',{'id_projektu':zatrudnienie})
+    return render(request, 'polls/usun_zatrudnienie.html',{'id_projektu':zatrudnienie})

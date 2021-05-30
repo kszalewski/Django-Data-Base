@@ -1,12 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 from . import views
 
 app_name='polls'
 
 urlpatterns = [
-    path('', views.Start),
     path('admin/', admin.site.urls),
     path('pracownicy/', views.detail_pracownicy),
     path('stanowiska/', views.detail_stanowiska),

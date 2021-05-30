@@ -1,6 +1,7 @@
 <section id="prawy">
+    <a href="{% url 'start' %}">Powrót na Stronę główną</a>
     <article>
-        <b>Czy na pewno chcesz usunąć stanowisko?</b><br>
+        <b>Czy na pewno chcesz zakończyć zatrudnienie?</b><br>
         <form method="post">
             {% csrf_token %}
             <br><button type="submit">Usuń</button>
