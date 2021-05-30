@@ -1,6 +1,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
+<a href="{% url 'polls:Start' %}">Powrót na Stronę główną</a>
+
 {% if pracownicy %}
     <table>
         <tr> 

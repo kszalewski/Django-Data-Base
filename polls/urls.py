@@ -1,9 +1,13 @@
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 
 from . import views
 
+app_name='polls'
+
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.Start),
+    path('admin/', admin.site.urls),
     path('pracownicy/', views.detail_pracownicy),
     path('stanowiska/', views.detail_stanowiska),
     path('szkolenia/', views.detail_szkolenia),

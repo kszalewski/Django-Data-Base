@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Pracownicy, Stanowiska, Szkolenia, Urlopy, Zatrudnienie, Projekty, Premia, Rekrutacja
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+def Start(request):
+    return render(request, 'start.html')
 
 def detail_pracownicy(request):
     pracownicy = Pracownicy.objects.all()
@@ -95,6 +95,6 @@ def usun_proj(request,id):
 def usun_zat(request,id):
     zatrudnienie = get_object_or_404(Zatrudnienie, pk=id)
     if request.method == "POST":
-        projekt.delete()
+        zatrudnienie.delete()
         return redirect(detail_zatrudnienie)
     return render(request, 'usun_zatrudnienie.html',{'id_projektu':zatrudnienie})
