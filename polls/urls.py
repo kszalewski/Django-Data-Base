@@ -19,5 +19,12 @@ urlpatterns = [
     path('usun_stanowisko/<int:id>/', views.usun_st),
     path('usun_projekt/<int:id>/', views.usun_proj),
     path('usun_zatrudnienie/<int:id>/', views.usun_zat),
-    path('formularz/', views.form_f, name="dodaj_prac"),
+    path('formularz/', views.form_f),
+    path('formularz_premia/', views.form_prem),
+    path('formularz_projekty/', views.form_proj),
+    path('formularz_rekrutacja/', views.form_rekr),
+    path('formularz_stanowiska/', views.form_stan),
+    path('formularz_szkolenia/', views.form_szkol),
+    path('formularz_urlopy/', views.form_urlop),
+    path('formularz_zatrudnienia/', views.form_zatr),
 ]

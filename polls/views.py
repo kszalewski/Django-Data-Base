@@ -1,4 +1,4 @@
-from polls.formularz import PracownicyForm
+from polls.formularz import PracownicyForm, PremiaForm, ProjektForm, RekrutacjaForm, StanowiskaForm, SzkoleniaForm, UrlopyForm, ZatrudnieniaForm
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, redirect, render
@@ -80,25 +80,75 @@ def usun_st(request,id):
     stanowisko = get_object_or_404(Stanowiska, pk=id)
     if request.method == "POST":
         stanowisko.delete()
-        return redirect(detail_stanowiska)
+        return redirect('/polls/stanowiska')
     return render(request, 'polls/usun_stanowisko.html',{'id_stanowiska':stanowisko})
 
 def usun_proj(request,id):
     projekt = get_object_or_404(Projekty, pk=id)
     if request.method == "POST":
         projekt.delete()
-        return redirect(detail_projekty)
+        return redirect('/polls/projekty')
     return render(request, 'polls/usun_projekt.html',{'id_projektu':projekt})
 
 def usun_zat(request,id):
     zatrudnienie = get_object_or_404(Zatrudnienie, pk=id)
     if request.method == "POST":
         zatrudnienie.delete()
-        return redirect(detail_zatrudnienie)
+        return redirect('/polls/zatrudnienia')
     return render(request, 'polls/usun_zatrudnienie.html',{'id_projektu':zatrudnienie})
 
 def form_f(request):
     formularz = PracownicyForm(request.POST or None, request.FILES or None)
     if formularz.is_valid():
         formularz.save()
+        return redirect('/polls/pracownicy')
     return render(request, 'polls/formularz.html', {'form':formularz})
+
+def form_prem(request):
+    formularz = PremiaForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/premia')
+    return render(request, 'polls/formularz_premia.html', {'form_premia':formularz})
+
+def form_proj(request):
+    formularz = ProjektForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/projekty')
+    return render(request, 'polls/formularz_projekty.html', {'form_projekty':formularz})
+
+def form_rekr(request):
+    formularz = RekrutacjaForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/rekrutacja')
+    return render(request, 'polls/formularz_rekrutacja.html', {'form_rekrutacja':formularz})
+
+def form_stan(request):
+    formularz = StanowiskaForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/stanowiska')
+    return render(request, 'polls/formularz_stanowiska.html', {'form_stanowiska':formularz})
+
+def form_szkol(request):
+    formularz = SzkoleniaForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/szkolenia')
+    return render(request, 'polls/formularz_szkolenia.html', {'form_szkolenia':formularz})
+
+def form_urlop(request):
+    formularz = UrlopyForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/urlopy')
+    return render(request, 'polls/formularz_urlopy.html', {'form_urlopy':formularz})
+
+def form_zatr(request):
+    formularz = ZatrudnieniaForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/zatrudnienia')
+    return render(request, 'polls/formularz_zatrudnienia.html', {'form_zatrudnienia':formularz})

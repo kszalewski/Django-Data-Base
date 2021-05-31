@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+</head>
+<section id="prawy">
+    <a href="{% url 'start' %}">Powrót na Stronę główną</a>
+    <article>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form_szkolenia}}
+            <br><button type="submit">Dodaj Szkolenie</button>
+        </form>
+    </article>
+</section>
