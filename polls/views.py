@@ -1,3 +1,4 @@
+from polls.formularz import PracownicyForm
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, redirect, render
@@ -72,7 +73,7 @@ def usun_f(request,id):
     pracownik = get_object_or_404(Pracownicy, pk=id)
     if request.method == "POST":
         pracownik.delete()
-        return redirect(detail_pracownicy)
+        return redirect('/polls/pracownicy')
     return render(request, 'polls/usun_pracownika.html',{'id_pracownika':pracownik})
 
 def usun_st(request,id):
@@ -95,3 +96,9 @@ def usun_zat(request,id):
         zatrudnienie.delete()
         return redirect(detail_zatrudnienie)
     return render(request, 'polls/usun_zatrudnienie.html',{'id_projektu':zatrudnienie})
+
+def form_f(request):
+    formularz = PracownicyForm(request.POST or None, request.FILES or None)
+    if formularz.is_valid():
+        formularz.save()
+    return render(request, 'polls/formularz.html', {'form':formularz})

@@ -19,4 +19,5 @@ urlpatterns = [
     path('usun_stanowisko/<int:id>/', views.usun_st),
     path('usun_projekt/<int:id>/', views.usun_proj),
     path('usun_zatrudnienie/<int:id>/', views.usun_zat),
+    path('formularz/', views.form_f, name="dodaj_prac"),
 ]

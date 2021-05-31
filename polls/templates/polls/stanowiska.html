@@ -8,12 +8,14 @@
   <tr>
     <th>Nazwa</th>
     <th>Dział</th>
+    <th>Braki?</th>
   </tr>
   {% for stanowisko in stanowiska %}
   <tr class="{% if stanowisko.braki %} braki {% endif %}">
     <td>{{stanowisko.nazwa}}</td>
     <td>{{stanowisko.dzial}}</td>
     <td>{{stanowisko.braki}}</td>
+    <td><a href="/polls/usun_stanowisko/{{stanowisko.id}}/">Usuń Stanowisko</a></td>
   </tr>
   {% endfor %}
 </table>
