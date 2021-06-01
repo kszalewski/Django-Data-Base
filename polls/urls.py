@@ -27,4 +27,8 @@ urlpatterns = [
     path('formularz_szkolenia/', views.form_szkol),
     path('formularz_urlopy/', views.form_urlop),
     path('formularz_zatrudnienia/', views.form_zatr),
+    path('edycja_stanowiska/<int:id>/', views.edycja_s),
+    path('edycja_projekt/<int:id>/', views.edycja_proj),
+    path('edycja_zatrudnienie/<int:id>/', views.edycja_zatr),
+    path('edycja_rekruta/<int:id>/', views.edycja_rekr),
 ]

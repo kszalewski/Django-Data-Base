@@ -152,3 +152,35 @@ def form_zatr(request):
         formularz.save()
         return redirect('/polls/zatrudnienia')
     return render(request, 'polls/formularz_zatrudnienia.html', {'form_zatrudnienia':formularz})
+
+def edycja_s(request,id):
+    stan = get_object_or_404(Stanowiska, pk=id)
+    formularz = StanowiskaForm(request.POST or None, request.FILES or None, instance=stan)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/stanowiska')
+    return render(request, 'polls/formularz_stanowiska.html', {'form_stanowiska':formularz})
+
+def edycja_proj(request,id):
+    stan = get_object_or_404(Projekty, pk=id)
+    formularz = ProjektForm(request.POST or None, request.FILES or None, instance=stan)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/projekty')
+    return render(request, 'polls/formularz_projekty.html', {'form_projekty':formularz})
+
+def edycja_zatr(request):
+    stan = get_object_or_404(Zatrudnienie, pk=id)
+    formularz = ZatrudnieniaForm(request.POST or None, request.FILES or None, instance=stan)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/zatrudnienia')
+    return render(request, 'polls/formularz_zatrudnienia.html', {'form_zatrudnienia':formularz})
+
+def edycja_rekr(request):
+    stan = get_object_or_404(Rekrutacja, pk=id)
+    formularz = RekrutacjaForm(request.POST or None, request.FILES or None, instance=stan)
+    if formularz.is_valid():
+        formularz.save()
+        return redirect('/polls/rekrutacja')
+    return render(request, 'polls/formularz_rekrutacja.html', {'form_rekrutacja':formularz})
