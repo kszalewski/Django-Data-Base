@@ -169,7 +169,7 @@ def edycja_proj(request,id):
         return redirect('/polls/projekty')
     return render(request, 'polls/formularz_projekty.html', {'form_projekty':formularz})
 
-def edycja_zatr(request):
+def edycja_zatr(request,id):
     stan = get_object_or_404(Zatrudnienie, pk=id)
     formularz = ZatrudnieniaForm(request.POST or None, request.FILES or None, instance=stan)
     if formularz.is_valid():
@@ -177,7 +177,7 @@ def edycja_zatr(request):
         return redirect('/polls/zatrudnienia')
     return render(request, 'polls/formularz_zatrudnienia.html', {'form_zatrudnienia':formularz})
 
-def edycja_rekr(request):
+def edycja_rekr(request,id):
     stan = get_object_or_404(Rekrutacja, pk=id)
     formularz = RekrutacjaForm(request.POST or None, request.FILES or None, instance=stan)
     if formularz.is_valid():
